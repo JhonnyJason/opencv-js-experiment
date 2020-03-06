@@ -40,11 +40,11 @@
         "minify-html": "html-minifier --input-dir toolset/build/html/pretty/ --output-dir toolset/build/html/minified/ --file-ext html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --use-short-doctype --minify-js true --minify-css true",
         "prepare-webpack": "run-s rebuild-webpack-worker-config rebuild-webpack-config",
         "dev-bundle": "webpack-cli --config .build-config/webpack-dev.config.js",
-        "dev-worker-bundle": "webpack-cli --config .build-config/webpack-dev-worker.config.js",
+        "dev-worker-bundle": "echo 'no worker'",
         "watch-bundle": "webpack-cli --config .build-config/webpack-watch.config.js",
-        "watch-worker-bundle": "webpack-cli --config .build-config/webpack-watch-worker.config.js",
+        "watch-worker-bundle": "echo 'no worker'",
         "deploy-bundle": "webpack-cli --config .build-config/webpack-deploy.config.js",
-        "deploy-worker-bundle": "webpack-cli --config .build-config/webpack-deploy-worker.config.js",
+        "deploy-worker-bundle": "echo 'no worker'",
         "build-style": "stylus toolset/build/heads/styl/* -o toolset/build/css/dirty/ --include-css",
         "watch-style": "stylus -w toolset/build/heads/styl/* -o toolset/build/css/dirty/ --include-css",
         "pageheadcreate": "cd sources/page-heads && thingymodulecreate",
@@ -69,7 +69,9 @@
         "copy-minified-html": "toolset/thingy-build-system/pwa/copy-minified-html.sh",
         "copy-deploy-worker": "toolset/thingy-build-system/pwa/copy-deploy-worker.sh",
         "copy-ressources": "sources/ressources/copyscript.sh",
-        "release": "toolset/thingy-build-system/pwa/release-script.sh"
+        "release": "toolset/thingy-build-system/pwa/release-script.sh",
+        "clean-css": "cleancss -O2 'specialComments:0' /home/lenny/thingies/opencv-js-experiment/toolset/build/css/dirty/index.css --output /home/lenny/thingies/opencv-js-experiment/toolset/build/css/clean/index.css",
+        "purge-css": "purgecss --css /home/lenny/thingies/opencv-js-experiment/toolset/build/css/clean/index.css --content /home/lenny/thingies/opencv-js-experiment/toolset/build/html/pretty/index.html --out /home/lenny/thingies/opencv-js-experiment/toolset/build/css/purged"
     },
     "repository": {
         "type": "git",

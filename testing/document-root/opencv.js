@@ -1,0 +1,1 @@
+/home/lenny/thingies/opencv-js-experiment/sources/source/opencvmodule/opencv.js
